@@ -44,3 +44,37 @@ function CountLet($line)
 
 echo '_________________'.CountLet('wkibchbjwikbid');
 
+function SumArr($arr)
+{
+    $result=0;
+    if(is_array($arr)){
+        foreach ($arr as $key => $value ){
+            if (is_array($value)){
+                $result=$result+$key+SumArr($value);
+            }
+            else{
+                $result+=$value;
+            }
+        }
+    }
+
+
+    return $result;
+}
+$arr = [ 1,5,11=>[111,3=>[2,3=>[2,5],8],4]];
+
+echo '______________'.SumArr($arr);//155
+
+function countSquare($bigSquareSize, $smallSquareSize) {
+    if ($bigSquareSize <= 0 || $smallSquareSize <= 0) {
+        return 0;
+    }
+    $count = pow($bigSquareSize, 2) / pow($smallSquareSize, 2);
+    return $count;
+}
+
+$bigSquareSize = 15;
+$smallSquareSize = 5;
+
+$result = (float) countSquare($bigSquareSize, $smallSquareSize);
+var_dump($result);
